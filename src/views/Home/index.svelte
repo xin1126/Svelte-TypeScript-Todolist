@@ -22,8 +22,6 @@
     switch (target) {
       case "all":
         lists = [...tempLists];
-        console.log(lists);
-        console.log(tempLists);
         break;
       case "undone":
         lists = [...tempLists].filter(
@@ -47,12 +45,14 @@
     selectData(selectStatus);
   };
 
-  const updateDone = () =>
+  let hasDone: number;
+  const updateDone = () => {
+    hasDone = (lists ?? tempLists).filter(
+      (item) => item.done
+    ).length;
     selectData(selectStatus);
-
-  $: hasDone = lists.filter(
-    (item) => item.done
-  ).length;
+  };
+  updateDone();
 
   const deleteItem = ({
     detail,
@@ -76,8 +76,6 @@
     tempLists.length = 0;
     selectData(selectStatus);
   };
-
-  selectData();
 </script>
 
 <div

@@ -41,10 +41,3 @@
     無資料
   </div>
 {/if}
-
-<style>
-  .done {
-    text-decoration: line-through;
-    color: gray;
-  }
-</style>

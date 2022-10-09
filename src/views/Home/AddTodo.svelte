@@ -3,7 +3,6 @@
   const dispatch = createEventDispatcher();
   let todoMsg: string;
   const add = () => {
-    console.log(todoMsg);
     if (todoMsg) {
       dispatch("addTodo", {
         msg: todoMsg,
